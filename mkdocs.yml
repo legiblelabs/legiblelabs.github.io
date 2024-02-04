@@ -1,0 +1,8 @@
+site_name: Legible Labs
+nav:
+  - Home: index.md
+theme:
+  name: material
+
+markdown_extensions:
+  - attr_list
