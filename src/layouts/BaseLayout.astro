@@ -1,0 +1,209 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Legible Labs - AI & LLM consultancy focused on education" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">Legible Labs</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/case-studies">Case Studies</a>
+        <a href="/publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2024 Legible Labs. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --color-primary: #2563eb;
+    --color-secondary: #7c3aed;
+    --color-accent: #f59e0b;
+    --color-dark: #1e293b;
+    --color-light: #f8fafc;
+    --color-gray: #64748b;
+    --color-border: #e2e8f0;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    --radius: 8px;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: var(--color-dark);
+    background: var(--color-light);
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 1000;
+    padding: var(--spacing-sm) 0;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  .nav-links a {
+    color: var(--color-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-primary);
+  }
+
+  main {
+    margin-top: 80px;
+    min-height: calc(100vh - 280px);
+  }
+
+  .footer {
+    background: var(--color-dark);
+    color: white;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: var(--spacing-md);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-md);
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  p {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      gap: var(--spacing-sm);
+    }
+  }
+</style>

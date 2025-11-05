@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedHero from '../components/AnimatedHero.astro';
+import SocialProof from '../components/SocialProof.astro';
+import FeaturedProjects from '../components/FeaturedProjects.astro';
+---
+
+<BaseLayout title="Legible Labs - AI & Education Technology Consultancy">
+  <AnimatedHero />
+
+  <section class="about-section">
+    <div class="container">
+      <div class="about-content">
+        <h2>About Legible Labs</h2>
+        <p class="lead">
+          We're a software consultancy focused on applications of AI and LLMs in education.
+          With deep expertise in machine learning operations, data engineering, and analytics,
+          we bring cutting-edge technology to solve real-world problems.
+        </p>
+        <div class="expertise-grid">
+          <div class="expertise-card">
+            <div class="icon">🤖</div>
+            <h3>AI & LLMs</h3>
+            <p>Building intelligent applications that leverage the latest in large language models</p>
+          </div>
+          <div class="expertise-card">
+            <div class="icon">📚</div>
+            <h3>Education Tech</h3>
+            <p>Transforming learning experiences with personalized, AI-powered solutions</p>
+          </div>
+          <div class="expertise-card">
+            <div class="icon">⚙️</div>
+            <h3>ML Ops & Data</h3>
+            <p>Robust infrastructure and pipelines across healthcare, finance, and politics</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FeaturedProjects />
+  <SocialProof />
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to build something amazing?</h2>
+        <p>Let's discuss how we can help bring your vision to life.</p>
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-section {
+    padding: var(--spacing-xl) 0;
+    background: white;
+  }
+
+  .about-content {
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--color-gray);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+  }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+
+  .expertise-card {
+    padding: var(--spacing-md);
+    background: var(--color-light);
+    border-radius: var(--radius);
+    border: 2px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .expertise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .expertise-card h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .expertise-card p {
+    color: var(--color-gray);
+    margin: 0;
+  }
+
+  .cta-section {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+  }
+
+  .cta-content {
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    color: white;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.9;
+  }
+</style>

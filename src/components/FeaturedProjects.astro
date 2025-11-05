@@ -1,0 +1,205 @@
+---
+// Featured Projects showcase
+const projects = [
+  {
+    name: "Squidgies",
+    url: "https://squidgies.app",
+    description: "An AI-native language learning application that helps intermediate learners improve their writing and speaking with personalized, AI-powered practice.",
+    icon: "🦑",
+    tags: ["AI", "Education", "Language Learning"]
+  },
+  {
+    name: "Rori",
+    url: "https://rori.ai/",
+    description: "A chatbot tutor designed for middle school math students in low-resource settings. Winner of the Schmidt Futures Tools Competition.",
+    icon: "🤖",
+    tags: ["AI Tutoring", "Math", "Education"]
+  },
+  {
+    name: "legible",
+    url: "https://devpost.com/software/legible",
+    description: "A cross-platform mobile Twitter client that helped intermediate learners grow their vocabulary while immersing in fresh, engaging social media content.",
+    icon: "📱",
+    tags: ["Mobile", "Language Learning", "Social Media"]
+  },
+  {
+    name: "Refold Languages",
+    url: "https://refold.la/",
+    description: "Building spaced repetition cards using NLP and frequency statistics for beginner learners across multiple languages.",
+    icon: "🔄",
+    tags: ["NLP", "Language Learning", "SRS"]
+  }
+];
+---
+
+<section class="featured-projects">
+  <div class="container">
+    <div class="section-header">
+      <h2>Featured Projects</h2>
+      <p>Transforming education through innovative AI-powered solutions</p>
+    </div>
+
+    <div class="projects-grid">
+      {projects.map((project, index) => (
+        <article class="project-card" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="project-icon">{project.icon}</div>
+          <div class="project-content">
+            <h3>{project.name}</h3>
+            <p>{project.description}</p>
+            <div class="project-tags">
+              {project.tags.map(tag => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+            <a href={project.url} target="_blank" rel="noopener noreferrer" class="project-link">
+              Learn More →
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="cta-container">
+      <a href="/case-studies" class="btn btn-primary">View All Case Studies</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .featured-projects {
+    padding: var(--spacing-xl) 0;
+    background: white;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .section-header h2 {
+    color: var(--color-dark);
+  }
+
+  .section-header p {
+    font-size: 1.25rem;
+    color: var(--color-gray);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .project-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--spacing-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: slideInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .project-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .project-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-sm);
+    transition: transform 0.4s ease;
+  }
+
+  .project-card:hover .project-icon {
+    transform: scale(1.2) rotate(5deg);
+  }
+
+  .project-content h3 {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .project-content p {
+    color: var(--color-gray);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .tag {
+    background: var(--color-light);
+    color: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+  }
+
+  .project-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .project-link:hover {
+    color: var(--color-secondary);
+    gap: 0.75rem;
+  }
+
+  .cta-container {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

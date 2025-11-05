@@ -1,1 +1,23 @@
 site/
+
+# Astro
+dist/
+.output/
+node_modules/
+.astro/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS
+.DS_Store
+
+# Old site backup
+_old_mkdocs/

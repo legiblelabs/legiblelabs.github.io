@@ -1,0 +1,372 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const caseStudies = [
+  {
+    name: "Squidgies",
+    tagline: "AI-Native Language Learning Platform",
+    url: "https://squidgies.app",
+    description: "Squidgies is an AI-native language learning application that helps intermediate learners improve their writing and speaking with personalized, AI-powered practice.",
+    icon: "🦑",
+    color: "#3b82f6",
+    challenge: "Intermediate language learners often struggle to find personalized, engaging practice opportunities that adapt to their specific level and interests.",
+    solution: "Built an AI-powered platform that provides dynamic, context-aware practice exercises for writing and speaking, adapting in real-time to each learner's progress and preferences.",
+    impact: [
+      "Personalized learning paths for each user",
+      "Real-time AI feedback on language production",
+      "Engaging, context-relevant practice scenarios"
+    ],
+    technologies: ["AI/LLMs", "Natural Language Processing", "Adaptive Learning"],
+    year: "2024"
+  },
+  {
+    name: "Rori",
+    tagline: "AI Tutoring for Math Education",
+    url: "https://rori.ai/",
+    description: "A chatbot tutor designed for middle school math students in low-resource settings. Winner of the Schmidt Futures Tools Competition and participating team in the Learning Engineering Virtual Institute.",
+    icon: "🤖",
+    color: "#8b5cf6",
+    challenge: "Students in low-resource settings often lack access to personalized math tutoring and immediate feedback on their work.",
+    solution: "Developed an AI-powered chatbot tutor that provides personalized math instruction, step-by-step guidance, and immediate feedback accessible via simple devices.",
+    impact: [
+      "Winner of Schmidt Futures Tools Competition",
+      "Serving students in low-resource settings worldwide",
+      "Part of Learning Engineering Virtual Institute",
+      "Scalable, accessible tutoring solution"
+    ],
+    technologies: ["AI Tutoring", "Educational Technology", "Conversational AI", "Math Education"],
+    year: "2023-2024"
+  },
+  {
+    name: "legible",
+    tagline: "Social Media Language Learning",
+    url: "https://devpost.com/software/legible",
+    description: "A cross-platform mobile Twitter client that helped intermediate learners grow their vocabulary in a language while immersing in fresh, engaging social media content.",
+    icon: "📱",
+    color: "#f59e0b",
+    challenge: "Language learners need authentic, engaging content to build vocabulary, but traditional learning materials can be dry and disconnected from real-world usage.",
+    solution: "Created a Twitter client that seamlessly integrates language learning tools with social media consumption, using spaced repetition and media recommendation algorithms.",
+    impact: [
+      "Vocabulary learning through authentic content",
+      "Bridge between media immersion and structured learning",
+      "Spaced repetition integrated with social feeds"
+    ],
+    technologies: ["Mobile Development", "NLP", "Recommendation Systems", "Spaced Repetition"],
+    year: "2022"
+  },
+  {
+    name: "Refold Languages",
+    tagline: "NLP-Powered Language Cards",
+    url: "https://refold.la/",
+    description: "Partnered with Refold to build spaced repetition cards using natural language processing and frequency statistics for beginner learners across multiple languages.",
+    icon: "🔄",
+    color: "#10b981",
+    challenge: "Creating effective spaced repetition materials for multiple languages that prioritize high-frequency, useful vocabulary for beginners.",
+    solution: "Built NLP pipelines that analyze language frequency data to automatically generate optimized spaced repetition cards for beginner learners across multiple languages.",
+    impact: [
+      "Automated card generation for multiple languages",
+      "Frequency-based content prioritization",
+      "Support for comprehensible input methodology"
+    ],
+    technologies: ["Natural Language Processing", "Data Engineering", "Frequency Analysis", "Spaced Repetition"],
+    year: "2021-2022"
+  }
+];
+---
+
+<BaseLayout
+  title="Case Studies - Legible Labs"
+  description="Explore our AI and education technology projects that are transforming learning experiences">
+
+  <section class="case-studies-hero">
+    <div class="container">
+      <h1>Case Studies</h1>
+      <p class="lead">Transforming education through innovative AI-powered solutions</p>
+    </div>
+  </section>
+
+  <section class="case-studies-content">
+    <div class="container">
+      {caseStudies.map((study, index) => (
+        <article class="case-study" style={`animation-delay: ${index * 0.15}s`}>
+          <div class="study-header">
+            <div class="study-icon" style={`background: ${study.color}20; color: ${study.color}`}>
+              {study.icon}
+            </div>
+            <div class="study-title-group">
+              <h2>{study.name}</h2>
+              <p class="tagline">{study.tagline}</p>
+            </div>
+            <span class="year">{study.year}</span>
+          </div>
+
+          <div class="study-body">
+            <div class="study-overview">
+              <p class="description">{study.description}</p>
+              <a href={study.url} target="_blank" rel="noopener noreferrer" class="external-link">
+                Visit Project →
+              </a>
+            </div>
+
+            <div class="study-details">
+              <div class="detail-section">
+                <h3>Challenge</h3>
+                <p>{study.challenge}</p>
+              </div>
+
+              <div class="detail-section">
+                <h3>Solution</h3>
+                <p>{study.solution}</p>
+              </div>
+
+              <div class="detail-section">
+                <h3>Impact</h3>
+                <ul class="impact-list">
+                  {study.impact.map(item => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="detail-section">
+                <h3>Technologies</h3>
+                <div class="tech-tags">
+                  {study.technologies.map(tech => (
+                    <span class="tech-tag">{tech}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to build something innovative?</h2>
+      <p>Let's discuss how we can help transform your educational vision into reality.</p>
+      <a href="#contact" class="btn btn-primary">Start a Conversation</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .case-studies-hero {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+    text-align: center;
+  }
+
+  .case-studies-hero h1 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .lead {
+    font-size: 1.5rem;
+    color: #cbd5e1;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .case-studies-content {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-light);
+  }
+
+  .case-study {
+    background: white;
+    border-radius: var(--radius);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .case-study:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+  }
+
+  .study-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+
+  .study-icon {
+    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    flex-shrink: 0;
+  }
+
+  .study-title-group {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .study-title-group h2 {
+    margin: 0;
+    color: var(--color-dark);
+  }
+
+  .tagline {
+    color: var(--color-gray);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0.25rem 0 0 0;
+  }
+
+  .year {
+    background: var(--color-light);
+    color: var(--color-gray);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .study-body {
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .study-overview {
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .external-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .external-link:hover {
+    color: var(--color-secondary);
+    gap: 0.75rem;
+  }
+
+  .study-details {
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .detail-section h3 {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .detail-section p {
+    color: var(--color-gray);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .impact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .impact-list li {
+    color: var(--color-gray);
+    padding: 0.5rem 0 0.5rem 2rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .impact-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-tag {
+    background: var(--color-light);
+    color: var(--color-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 2px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .tech-tag:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    color: white;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cta-section p {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .study-header {
+      flex-direction: column;
+    }
+
+    .year {
+      align-self: flex-start;
+    }
+  }
+</style>
